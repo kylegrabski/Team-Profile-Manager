@@ -13,7 +13,9 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
 // empty arrays that new employees will be pushed into
-const engineerData=[]
+const managerData = [];
+const engineerData = [];
+const internData = [];
 
 
 // prompts
@@ -95,18 +97,17 @@ const menu = [
     }
 ]
 
-
+let start = true;
 // initialize app
 function init(){
-    // prompt(managerQuestions)
-    // .then(data => {
-    //     console.log(data)
-    //     prompt(menu)
-    //     .then(data => {
-    //         console.log(data)
-    //     })
-    // })
-    askQuestions()
+    if (start === true){
+    askQuestions().then(
+    console.log("FINISH IT"));
+}else{
+    console.log(managerData)
+}
+    // bring in generateCards Module
+    // generateCards(managerData, engineerData, internData)
 }
 
 
@@ -115,11 +116,13 @@ function askQuestions(){
     // ask manager questions
     prompt(managerQuestions)
         .then(data => {
-            let manager = new Manager(data.name, data.id, data.email, data.officeNumber)
-            console.log(manager)
-            askMenu()   
-                  
-            return data
+            managerData.push(data)
+            console.log(managerData[0].name)
+            console.log(managerData[0].id)
+            console.log(managerData[0].email)
+            console.log(managerData[0].officeNumber)
+                return askMenu()                    
+            
         })
 }
 
@@ -152,6 +155,8 @@ function addIntern(){
     prompt(internQuestions)
     .then(data => {
         console.log(data)
+        internData.push(data)
+        console.log(internData)
         askMenu();
         return data
     })
@@ -159,6 +164,35 @@ function addIntern(){
 
 // call function to initilaize app
 init();
+
+
+// create HTML file
+function writeToFile(fileName, data){
+    fs.writeFile(fileName, data, err => {
+        if (err) throw err;
+        console.log('....NEW HTML FILE CREATED');
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // const managerPromise = new Promise ((resolve, reject) => {
