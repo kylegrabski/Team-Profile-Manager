@@ -18,6 +18,7 @@ const engineerData = [];
 const internData = [];
 
 
+
 // prompts
 const managerQuestions = [
     {
@@ -97,15 +98,12 @@ const menu = [
     }
 ]
 
-let start = true;
+
 // initialize app
-function init(){
-    if (start === true){
-    askQuestions().then(
-    console.log("FINISH IT"));
-}else{
-    console.log(managerData)
-}
+const init = async () => {
+   await askQuestions()
+    console.log("FINISHED")
+   
     // bring in generateCards Module
     // generateCards(managerData, engineerData, internData)
 }
@@ -129,21 +127,22 @@ function askQuestions(){
 function askMenu (){
     prompt(menu)
     .then(data => {
-        console.log(data.menu)
+       
         if (data.menu === 'ADD ENGINEER'){
             addEngineer()
         }else if(data.menu === 'ADD INTERN'){
             addIntern()
         }
-        return data.menu
+        
     })
 }
 
 function addEngineer(){
     prompt(engineerQuestions)
     .then(data => {
-        console.log(data);
+
         engineerData.push(data)
+        
         console.log(engineerData)
         askMenu();
         return data
@@ -154,7 +153,7 @@ function addEngineer(){
 function addIntern(){
     prompt(internQuestions)
     .then(data => {
-        console.log(data)
+
         internData.push(data)
         console.log(internData)
         askMenu();
@@ -173,6 +172,12 @@ function writeToFile(fileName, data){
         console.log('....NEW HTML FILE CREATED');
     });
 };
+
+module.exports = [
+    managerData,
+    engineerData,
+    internData
+]
 
 
 
