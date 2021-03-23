@@ -3,7 +3,6 @@ const { prompt } = require("inquirer");
 const fs = require("fs");
 
 // required classes
-const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -108,16 +107,21 @@ function askQuestions() {
   });
 }
 
-function askMenu() {
-  prompt(menu).then((data) => {
+async function askMenu() {
+  try {
+    const data = await prompt(menu);
+
     if (data.menu === "ADD ENGINEER") {
       addEngineer();
     } else if (data.menu === "ADD INTERN") {
       addIntern();
     } else {
-      createPage();
+      await createPage("./dist/team.html", renderPage(teamArr));
+      console.log("PROMISE PAGE CREATED");
     }
-  });
+  } catch (err) {
+    console.log("ERROR AT askMenu");
+  }
 }
 
 function addEngineer() {
@@ -140,8 +144,12 @@ function addIntern() {
 // call function to initilaize app
 askQuestions();
 
-function createPage() {
-  fs.writeFileSync("./dist/team.html", renderPage(teamArr), "UTF-8");
+async function createPage(fileName, data) {
+  try {
+    await fs.promises.writeFile(fileName, data);
+  } catch (err) {
+    console.log("ERROR in PROMISE LAND", err);
+  }
 }
 
 module.exports = [teamArr];
