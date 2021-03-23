@@ -31,7 +31,7 @@ function renderPage(team) {
                         </ul>
                 </div>
             </div>`;
-    } else if (team[i].role === "Intern") {
+    } else  {
       employees += `
         <div class="card employee-card" id="Intern">
                 <div class="card-header">
@@ -42,7 +42,7 @@ function renderPage(team) {
                     <ul class="list-group">
                         <li class="list-group-item">ID: ${team[i].id}</li>
                         <li class="list-group-item">Email: <a href="mailto:${team[i].email}">${team[i].email}</a></li>
-                        <li class="list-group-item">Schoole: ${team[i].school} </a></li>                    
+                        <li class="list-group-item">School: ${team[i].school} </a></li>                    
                         </ul>
                 </div>
             </div>`;
