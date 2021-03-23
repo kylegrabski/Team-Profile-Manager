@@ -122,12 +122,7 @@ function askMenu() {
 
 function addEngineer() {
   prompt(engineerQuestions).then((data) => {
-    const engineer = new Engineer(
-        data.name, 
-        data.id, 
-        data.email, 
-        data.github
-    );
+    const engineer = new Engineer(data.name, data.id, data.email, data.github);
     teamArr.push(engineer);
 
     askMenu();
@@ -136,12 +131,7 @@ function addEngineer() {
 
 function addIntern() {
   prompt(internQuestions).then((data) => {
-    const intern = new Intern(
-        data.name, 
-        data.id, 
-        data.email, 
-        data.school
-    );
+    const intern = new Intern(data.name, data.id, data.email, data.school);
     teamArr.push(intern);
     askMenu();
   });
@@ -153,11 +143,5 @@ askQuestions();
 function createPage() {
   fs.writeFileSync("./dist/team.html", renderPage(teamArr), "UTF-8");
 }
-
-/*  renderPage that takes in team array, 
-first have empty string var to reset
-go through for loop, checks index if manager/engineer/intern
-and put corresponding data to card.
-*/
 
 module.exports = [teamArr];
