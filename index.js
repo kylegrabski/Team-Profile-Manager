@@ -13,7 +13,7 @@ const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
 // required function to create HTML
-// const generateCards = require('./src/generateCards')
+const renderPage = require("./src/renderPage")
 
 // empty arrays that new employees will be pushed into
 const managerData = [];
@@ -100,20 +100,7 @@ const menu = [
         choices: ["ADD ENGINEER", "ADD INTERN", "FINISH BUILDING TEAM"],
         name: 'menu'
     }
-]
-
-
-// initialize app
-// const init = async () => {
-//    await askQuestions()
-//     console.log("FINISHED")
-   
-//     // bring in generateCards Module
-//     // generateCards(managerData, engineerData, internData)
-// }
-
-
-
+];
 
 function askQuestions(){
     // ask manager questions
@@ -169,9 +156,8 @@ askQuestions();
 
 
 
-// @ToDo create this later
 function createPage() {
-    fs.writeFileSync('./dist/team.html', renderPage(team), 'UTF-8');
+    fs.writeFileSync('./dist/team.html', renderPage(teamArr), 'UTF-8');
  }
 
 
@@ -182,79 +168,8 @@ and put corresponding data to card.
 */
 
 
-// create HTML file
-function writeToFile(fileName, data){
-    fs.writeFile(fileName, data, err => {
-        if (err) throw err;
-        console.log('....NEW HTML FILE CREATED');
-    });
-};
+
 
 module.exports = [
-    managerData,
-    engineerData,
-    internData
+   teamArr
 ]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const managerPromise = new Promise ((resolve, reject) => {
-//     const time = 0
-//     if(time <0){
-//     reject(new Error('Something went wrong with Manager Promise'))
-//     }else {
-//     resolve(prompt(managerQuestions))}
-// });
-
-// Promise.all(managerPromise)
-//     .then((data) => {
-//         console.log(data)
-//     })
-
-
-// ask questions logic
-// function askQuestions(){
-//     // ask manager questions
-//     prompt(managerQuestions)
-//     .then(data => {
-//         console.log(data);
-//         // go to menu
-//         prompt(menu)
-//         .then(data => {
-//             console.log(data.menu);
-//             // if user chooses engineer, ask engineer questions
-//             if(data.menu === 'ADD ENGINEER'){
-//                 prompt(engineerQuestions)
-//                 .then(data => {
-//                     console.log(data)
-//                 })
-//                 // if user chooses intern, ask intern questions
-//             } else if (data.menu === 'ADD INTERN'){
-//                 prompt(internQuestions)
-//                 .then(data => {
-//                     console.log(data)
-//                 })
-//             }else return
-//         })
-//     })
-
-// }
