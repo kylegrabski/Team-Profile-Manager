@@ -12,10 +12,14 @@ const Manager = require('./lib/manager');
 const Engineer = require('./lib/engineer');
 const Intern = require('./lib/intern');
 
+// required function to create HTML
+// const generateCards = require('./src/generateCards')
+
 // empty arrays that new employees will be pushed into
 const managerData = [];
 const engineerData = [];
 const internData = [];
+const teamArr = [];
 
 
 
@@ -100,13 +104,14 @@ const menu = [
 
 
 // initialize app
-const init = async () => {
-   await askQuestions()
-    console.log("FINISHED")
+// const init = async () => {
+//    await askQuestions()
+//     console.log("FINISHED")
    
-    // bring in generateCards Module
-    // generateCards(managerData, engineerData, internData)
-}
+//     // bring in generateCards Module
+//     // generateCards(managerData, engineerData, internData)
+// }
+
 
 
 
@@ -115,11 +120,7 @@ function askQuestions(){
     prompt(managerQuestions)
         .then(data => {
             managerData.push(data)
-            console.log(managerData[0].name)
-            console.log(managerData[0].id)
-            console.log(managerData[0].email)
-            console.log(managerData[0].officeNumber)
-                return askMenu()                    
+            return askMenu()                    
             
         })
 }
@@ -133,6 +134,9 @@ function askMenu (){
         }else if(data.menu === 'ADD INTERN'){
             addIntern()
         }
+        else {
+            createPage();
+        }
         
     })
 }
@@ -140,12 +144,11 @@ function askMenu (){
 function addEngineer(){
     prompt(engineerQuestions)
     .then(data => {
-
-        engineerData.push(data)
-        
-        console.log(engineerData)
+        const engineer = new Engineer(data.name, data.id,data.email,data.github)
+        teamArr.push(engineer)
+       
         askMenu();
-        return data
+        // return data
     })
 }
 
@@ -157,12 +160,26 @@ function addIntern(){
         internData.push(data)
         console.log(internData)
         askMenu();
-        return data
+        // return data
     })
 }
 
 // call function to initilaize app
-init();
+askQuestions();
+
+
+
+// @ToDo create this later
+function createPage() {
+    fs.writeFileSync('./dist/team.html', renderPage(team), 'UTF-8');
+ }
+
+
+/*  renderPage that takes in team array, 
+first have empty string var to reset
+go through for loop, checks index if manager/engineer/intern
+and put corresponding data to card.
+*/
 
 
 // create HTML file
