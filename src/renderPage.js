@@ -3,14 +3,14 @@ function renderPage(team) {
   for (let i = 0; i < team.length; i++) {
     if (team[i].role === "Manager") {
       employees += `
-    <div class="col-sm">
+    <div class="col-sm" id="team-card">
         <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${team[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
           <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
           <br>
-          <p class="card-text">Office #: ${team[i].officeNumber}</p>
+          <p class="card-text">Office # ${team[i].officeNumber}</p>
         </div>
       </div>
     </div>`;
@@ -20,7 +20,7 @@ function renderPage(team) {
       employees += `
 
 
-    <div class="col-sm">
+    <div class="col-sm" id="team-card">
         <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">${team[i].name}</h5>
@@ -34,7 +34,7 @@ function renderPage(team) {
 
     } else {
       employees += `
-    <div class="col-sm">
+    <div class="col-sm" id="team-card">
           <div class="card" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">${team[i].name}</h5>
@@ -57,6 +57,7 @@ function renderPage(team) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Team Building Profile</title>
 </head>
 <body>
@@ -68,7 +69,7 @@ function renderPage(team) {
   </a>
 </nav>
 
-<div class="container">
+<div class="container" id="team-card" >
   <div class="row">
     ${employees}
   </div>

@@ -1,0 +1,17 @@
+body {
+    background-color: #daecf0;
+}
+
+#team-container {
+    margin: 20px;
+}
+
+#team-card {
+    margin: 5px;
+
+}
+
+.card {
+    background-color: #94c9d4;
+    box-shadow: 2px 2px 4px;
+}
