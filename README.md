@@ -1,7 +1,7 @@
 # Team Profile Generator
 
-[GitHub Repo]()  
-[Video Walkthrough]()  
+[GitHub Repo](https://github.com/kylegrabski/Team-Profile-Manager)  
+[Video Walkthrough](https://www.youtube.com/watch?v=HGUGAriyg5g)  
 
 
 ## Description
@@ -15,9 +15,3 @@ This app allows you to build a profile page of your project team! Enter as many 
 > - Enter 'node index.js' to run the app  
 > - Follow the prompts to build your team  
 > - Open the HTML page that was created to view your team  > - profile!
-
-
-
-
-
-
