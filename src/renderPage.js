@@ -8,9 +8,12 @@ function renderPage(team) {
         <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/manager.png"/>
           <h5 class="card-title">${team[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
-          <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
+          <p>
+            Email: 
+            <a href="mailto:${team[i].email}" class="card-link">${team[i].email}</a>
+          </p>
           <br>
-          <p class="card-text">Office # ${team[i].officeNumber}</p>
+          <p class="card-text">Office: ${team[i].officeNumber}</p>
         </div>
       </div>
     </div>`;
@@ -25,9 +28,14 @@ function renderPage(team) {
         <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/system-administrator-male.png"/>
           <h5 class="card-title">${team[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
-          <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
+          <p>
+            Email: 
+            <a href="mailto:${team[i].email}" class="card-link">${team[i].email}</a>
+          </p>
           <br>
-          <a href="https://github.com/${team[i].github}" target="_blank"  class="card-link">GitHub: ${team[i].github}</a>
+          <p>Github: 
+            <a href="https://github.com/${team[i].github}" target="_blank"  class="card-link">${team[i].github}</a>
+          </p>
         </div>
       </div>
     </div>`;
@@ -39,7 +47,10 @@ function renderPage(team) {
           <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/writer-male.png"/>
             <h5 class="card-title">${team[i].name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
-            <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
+            <p>
+              Email: 
+              <a href="mailto:${team[i].email}" class="card-link">${team[i].email}</a>
+            </p>
             <br>
             <p class="card-text">School: ${team[i].school}</p>
           </div>
