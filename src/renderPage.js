@@ -5,7 +5,7 @@ function renderPage(team) {
       employees += `
     <div class="col-sm" id="team-card">
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
+        <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/manager.png"/>
           <h5 class="card-title">${team[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
           <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
@@ -22,7 +22,7 @@ function renderPage(team) {
 
     <div class="col-sm" id="team-card">
         <div class="card" style="width: 18rem;">
-        <div class="card-body">
+        <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/system-administrator-male.png"/>
           <h5 class="card-title">${team[i].name}</h5>
           <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
           <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
@@ -36,12 +36,12 @@ function renderPage(team) {
       employees += `
     <div class="col-sm" id="team-card">
           <div class="card" style="width: 18rem;">
-          <div class="card-body">
+          <div class="card-body"><img src="https://img.icons8.com/fluent-systems-filled/48/000000/writer-male.png"/>
             <h5 class="card-title">${team[i].name}</h5>
             <h6 class="card-subtitle mb-2 text-muted">${team[i].role}</h6>
             <a href="mailto:${team[i].email}" class="card-link">Email: ${team[i].email}</a>
             <br>
-            <p class="card-text">School ${team[i].school}</p>
+            <p class="card-text">School: ${team[i].school}</p>
           </div>
         </div>
     </div>`;

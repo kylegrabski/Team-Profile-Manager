@@ -117,7 +117,7 @@ async function askMenu() {
       addIntern();
     } else {
       await createPage("./dist/team.html", renderPage(teamArr));
-      console.log("PROMISE PAGE CREATED");
+      console.log("....PAGE CREATED");
     }
   } catch (err) {
     console.log("ERROR AT askMenu");
