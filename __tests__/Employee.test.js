@@ -22,7 +22,7 @@ describe("Employee", () => {
       expect(e.id).toBe(id);
     });
 
-    test("Can set ID attribute", () => {
+    test("Can set email attribute", () => {
       const email = "kyle.grabski@gmail.com";
       const e = new Employee("Kyle", 77, email);
       expect(e.email).toBe(email);
