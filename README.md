@@ -14,4 +14,4 @@ This app allows you to build a profile page of your project team! Enter as many 
 > - Enter 'npm i' in the command line to download all dependencies  
 > - Enter 'node index.js' to run the app  
 > - Follow the prompts to build your team  
-> - Open the HTML page that was created to view your team  > - profile!
+> - Open the HTML page that was created to view your team profile!
